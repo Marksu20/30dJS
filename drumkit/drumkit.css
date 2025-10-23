@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	/* background: radial-gradient(circle at top, #111, #000); */
+	color: white;
+	background-image: url("drumkit-bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: fill;
+	background-attachment: fixed;
+}
+
+.drumkit {
+	display: grid;
+	/* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); */
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	max-width: 600px;
+	width: 90%;
+}
+
+
+.key {
+	background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+	border: 2px solid #333;
+	border-radius: 15px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.05);
+	text-align: center;
+	padding: 25px 0;
+	font-size: 1.5rem;
+	letter-spacing: 1px;
+	transition: all 0.15s ease;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.key::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(120deg, rgba(255,255,255,0.15), transparent);
+	transition: 0.4s;
+}
+
+.key:hover::before {
+	left: 100%;
+}
+
+/* .key:active {
+	transform: scale(0.95);
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.6);
+	border-color: #3F9161;
+	background: linear-gradient(145deg, #99EDD3, #57C785);
+	color: #000;
+} */
+
+.playing{
+	transform: scale(0.95);
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.6);
+	border-color: #3F9161;
+	background: linear-gradient(145deg, #99EDD3, #57C785);
+	color: #000;
+}
+
+.key span {
+	display: block;
+	font-size: 0.8rem;
+	opacity: 0.7;
+	margin-top: 5px;
+}
+
+@media (max-width: 500px) {
+	.key {
+		padding: 20px 0;
+		font-size: 1.2rem;
+	}
+}
